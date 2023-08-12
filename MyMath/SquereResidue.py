@@ -1,20 +1,8 @@
-import math
-import Prime_lib
+import PerfectSquare as ps
 from tabulate import tabulate
 
-def is_perfect_square(n):
-    sqrt_n = int(math.sqrt(n))
-    return sqrt_n * sqrt_n == n
-
-def find_perfect_squares(start, end):
-    perfect_squares = []
-    for num in range(start, end + 1):
-        if is_perfect_square(num):
-            perfect_squares.append(num)
-    return perfect_squares
 
 def calculate_quadratic_residuals(squares,prime):
-    
     residuals = []
     res =[]
     for sq in squares:
@@ -28,11 +16,8 @@ def calculate_quadratic_residuals(squares,prime):
 
 
 
-
-
-
 def print_quadratic(prime):
-    perfect_squares = find_perfect_squares(0, prime*100)
+    perfect_squares = ps.Generate_perfect_squares(0, prime*100)
     quadratic_residuals = calculate_quadratic_residuals(perfect_squares,prime)
     print("numero primo: ",prime)
     print ("si sta gli scarti quadratici con la formula y^2=x mod",prime, "come da definizione\n")
@@ -42,6 +27,5 @@ def print_quadratic(prime):
 
 
 
-#print_quadratic(Prime_lib.generate_random_prime(50,100))
-print_quadratic(7)
+
 
